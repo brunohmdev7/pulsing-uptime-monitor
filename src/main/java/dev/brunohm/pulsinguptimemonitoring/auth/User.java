@@ -20,14 +20,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(nullable = false)
     private String name;
 
     @Email
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(name = "password_hash")
+    @Column(nullable = false, name = "password_hash")
     private String passwordHash;
 
-    @Column(name = "created_at")
+    @Column(nullable = false, name = "created_at")
     private Instant createdAt;
 }
